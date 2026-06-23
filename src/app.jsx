@@ -470,11 +470,15 @@ function App() {
             {mode === "result" ? (
               <div className="phrase-en">
                 {result.matched.map((m, i) => (
-                  <span key={i} className={m.ok ? "w-ok" : "w-miss"}>{m.word} </span>
+                  <span key={i} className={(m.ok ? "w-ok" : "w-miss") + " w-click"} onClick={() => speak(m.word)}>{m.word} </span>
                 ))}
               </div>
             ) : (
-              <div className="phrase-en">{phrase.en}</div>
+              <div className="phrase-en">
+                {phrase.en.split(" ").map((word, i) => (
+                  <span key={i} className="w-click" onClick={() => speak(word)}>{word} </span>
+                ))}
+              </div>
             )}
             <div className="phrase-pt">{phrase.pt}</div>
           </div>
@@ -613,6 +617,9 @@ const CSS = `
 .phrase-pt { color:var(--muted); font-weight:700; font-size:15px; margin-top:2px; }
 .w-ok { color:var(--green); }
 .w-miss { color:#C7CFCB; text-decoration:underline; text-decoration-color:#FFB199; text-decoration-thickness:2px; }
+.w-click { cursor:pointer; border-radius:6px; padding:0 3px; transition:background .1s; }
+.w-click:hover { background:rgba(20,184,196,.18); }
+.w-click:active { background:rgba(20,184,196,.35); }
 
 /* resultado */
 .result { width:100%; text-align:center; border-radius:18px; padding:12px; }
