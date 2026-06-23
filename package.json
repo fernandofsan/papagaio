@@ -1,0 +1,19 @@
+{
+  "name": "fala-papagaio",
+  "version": "1.0.0",
+  "description": "App infantil de pronuncia em ingles (Web Speech API + Web Audio). Build gera um index.html autossuficiente.",
+  "type": "module",
+  "scripts": {
+	"dev": "vite",
+    "build": "node build.mjs",
+    "watch": "node build.mjs --watch",
+    "serve": "npx --yes serve ."
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.1"
+  }
+}
